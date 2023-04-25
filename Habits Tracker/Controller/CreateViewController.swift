@@ -1,10 +1,5 @@
 import UIKit
 
-func collectionReloadData() {
-    let habitsViewController = HabitsViewController()
-    habitsViewController.myCollectionViewHabits.reloadData()
-}
-
 class CreateViewController: UIViewController {
     
     var habitMy: Habit?
@@ -171,25 +166,27 @@ class CreateViewController: UIViewController {
     
     
     @objc func dismissing() {
-        collectionReloadData()
         self.dismiss(animated: true, completion: nil)
     }
     
     @objc func creating() {
         if hidden {
             let store = HabitsStore.shared
-            collectionReloadData()
             if let selectedDate = createView.date {
                 let habit = Habit(name: createView.nameField.text ?? "", date: selectedDate, color: createView.colorPicker.selectedColor)
                 store.habits.append(habit)
                 self.dismiss(animated: true, completion: nil)
-            } else { print("Select date!") }
+            } else {
+                createView.date = Date.now
+                let habit = Habit(name: createView.nameField.text ?? "", date: createView.date ?? Date.now, color: createView.colorPicker.selectedColor)
+                store.habits.append(habit)
+                self.dismiss(animated: true, completion: nil)
+            }
         } else {
             if let habit = habitMy {
                 habit.name = createView.nameField.text ?? ""
                 habit.date = createView.date ?? Date.now
                 habit.color = createView.colorPicker.selectedColor
-                collectionReloadData()
                 HabitsStore.shared.save()
                 self.navigationController?.popToRootViewController(animated: true)
             }
@@ -209,7 +206,6 @@ class CreateViewController: UIViewController {
         if let trueHaBit = habitMy {
             HabitsStore.shared.habits = HabitsStore.shared.habits.filter({ $0 != trueHaBit })
         }
-        collectionReloadData()
         self.navigationController?.popToRootViewController(animated: true)
     }
     

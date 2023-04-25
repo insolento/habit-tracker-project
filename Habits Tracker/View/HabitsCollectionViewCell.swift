@@ -2,6 +2,8 @@ import UIKit
 
 class HabitsCollectionViewCell: UICollectionViewCell {
     
+    weak var delegate: CollectionViewCellDelegate?
+    
     var habitIn: Habit?
     
     var buttonTapped: Bool = false
@@ -113,15 +115,14 @@ class HabitsCollectionViewCell: UICollectionViewCell {
     @objc func tapped() {
         if buttonTapped {
             buttonTapped = false
-            //completedButton.backgroundColor = .clear
-            collectionReloadData()
+            delegate?.reloadCollectionView()
         } else {
             buttonTapped = true
             completedButton.backgroundColor = UIColor(cgColor: completedButton.layer.borderColor ?? CGColor(gray: 0, alpha: 0))
             if let trueHabit = habitIn {
                 HabitsStore.shared.track(trueHabit)
             }
-            collectionReloadData()
+            delegate?.reloadCollectionView()
         }
     }
     
