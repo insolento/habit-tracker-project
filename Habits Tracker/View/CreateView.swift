@@ -23,11 +23,10 @@ class CreateView: UIView {
         let field = UITextField()
         field.translatesAutoresizingMaskIntoConstraints = false
         field.heightAnchor.constraint(equalToConstant: 22).isActive = true
-        field.placeholder = "Бегать по утрам, спать 8 часов и т.п."
+        field.placeholder = "Run every morning, sleep for 8 hours etc."
         field.backgroundColor = .clear
         field.font = UIFont.systemFont(ofSize: 17)
         field.autocapitalizationType = .sentences
-        //field.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
         return field
     }()
     
@@ -37,7 +36,7 @@ class CreateView: UIView {
         label.heightAnchor.constraint(equalToConstant: 22).isActive = true
         label.font = UIFont.systemFont(ofSize: 13, weight: .bold)
         label.textColor = .black
-        label.text = "НАЗВАНИЕ"
+        label.text = "NAME"
         return label
     }()
     
@@ -47,7 +46,7 @@ class CreateView: UIView {
         label.heightAnchor.constraint(equalToConstant: 22).isActive = true
         label.font = UIFont.systemFont(ofSize: 13, weight: .bold)
         label.textColor = .black
-        label.text = "ЦВЕТ"
+        label.text = "COLOUR"
         return label
     }()
     
@@ -57,7 +56,7 @@ class CreateView: UIView {
         label.heightAnchor.constraint(equalToConstant: 22).isActive = true
         label.font = UIFont.systemFont(ofSize: 13, weight: .bold)
         label.textColor = .black
-        label.text = "ВРЕМЯ"
+        label.text = "TIME"
         return label
     }()
     
@@ -67,7 +66,7 @@ class CreateView: UIView {
         label.heightAnchor.constraint(equalToConstant: 22).isActive = true
         label.font = UIFont.systemFont(ofSize: 13, weight: .regular)
         label.textColor = .black
-        label.text = "Каждый день в "
+        label.text = "Every day at "
         return label
     }()
     
@@ -143,7 +142,7 @@ class CreateView: UIView {
         
         selectedDate = dateFormatter.string(from: sender.date)
             
-        everydayLable.text = "Каждый день в " + selectedDate
+        everydayLable.text = "Every day at " + selectedDate
             
         print("Selected value \(selectedDate)")
     }

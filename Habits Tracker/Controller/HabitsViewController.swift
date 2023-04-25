@@ -56,7 +56,7 @@ class HabitsViewController: UIViewController {
             target: self,
             action: #selector(addHabit)
         )
-        navigationItem.title = "Сегодня"
+        navigationItem.title = "Today"
         navigationController?.navigationBar.backgroundColor = .systemBackground
         navigationController?.navigationBar.tintColor = UIColor(named: "PurpleColor")
         

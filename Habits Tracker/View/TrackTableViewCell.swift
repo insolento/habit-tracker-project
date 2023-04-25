@@ -20,9 +20,9 @@ class TrackTableViewCell: UITableViewCell {
         let dateFormat = DateFormatter()
         dateFormat.dateFormat = "d MMM yyyy"
         if Calendar.current.isDateInToday(date) {
-            dateLabel.text = "Сегодня"
+            dateLabel.text = "Today"
         } else if Calendar.current.isDateInYesterday(date) {
-            dateLabel.text = "Вчера"
+            dateLabel.text = "Yesterday"
         } else {
         dateLabel.text = dateFormat.string(from: date)
         }

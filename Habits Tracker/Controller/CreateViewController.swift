@@ -14,7 +14,7 @@ class CreateViewController: UIViewController {
     private lazy var deleteButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Удалить привычку", for: .normal)
+        button.setTitle("Delete habit", for: .normal)
         button.setTitleColor(.red, for: .normal)
         button.backgroundColor = .clear
         button.titleLabel?.font = UIFont.systemFont(ofSize: 17)
@@ -32,7 +32,7 @@ class CreateViewController: UIViewController {
     private lazy var createLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Создать"
+        label.text = "Create"
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 19, weight: .semibold)
         label.textColor = .black
@@ -43,7 +43,7 @@ class CreateViewController: UIViewController {
     private lazy var closeButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Отменить", for: .normal)
+        button.setTitle("Cancel", for: .normal)
         button.backgroundColor = .clear
         button.titleLabel?.font = UIFont.systemFont(ofSize: 19)
         button.setTitleColor(UIColor(named: "PurpleColor"), for: .normal)
@@ -56,7 +56,7 @@ class CreateViewController: UIViewController {
     private lazy var createButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Сохранить", for: .normal)
+        button.setTitle("Save", for: .normal)
         button.backgroundColor = .clear
         button.titleLabel?.font = UIFont.systemFont(ofSize: 19, weight: .bold)
         button.setTitleColor(UIColor(named: "PurpleColor"), for: .normal)
@@ -81,7 +81,7 @@ class CreateViewController: UIViewController {
         barButtonsSetup()
         
         createView.translatesAutoresizingMaskIntoConstraints = false
-        navigationItem.title = "Создать"
+        navigationItem.title = "Create"
         
         if #available(iOS 11, *) {
             navigationController?.navigationBar.prefersLargeTitles = false
@@ -113,10 +113,10 @@ class CreateViewController: UIViewController {
     }
     
     func barButtonsSetup() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Сохранить", style: .plain, target: self, action: #selector(creating))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(creating))
         navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "PurpleColor")
         if hidden {
-            navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Отменить", style: .plain, target: self, action: #selector(dismissing))
+            navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(dismissing))
             navigationItem.leftBarButtonItem?.tintColor = UIColor(named: "PurpleColor")
         }
     }

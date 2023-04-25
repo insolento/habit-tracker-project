@@ -11,7 +11,7 @@ class ProgressCollectionViewCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 13)
         label.textAlignment = .left
-        label.text = "Всё получится!"
+        label.text = "You will get it!"
         return label
     }()
     

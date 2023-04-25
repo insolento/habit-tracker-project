@@ -107,7 +107,7 @@ class HabitsCollectionViewCell: UICollectionViewCell {
             numberOfCompliting += 1
         }
         
-        bottomLabel.text = "Счётчик: \(numberOfCompliting)"
+        bottomLabel.text = "Counter: \(numberOfCompliting)"
     }
     
     @objc func tapped() {
@@ -122,7 +122,6 @@ class HabitsCollectionViewCell: UICollectionViewCell {
                 HabitsStore.shared.track(trueHabit)
             }
             collectionReloadData()
-            print("AHAHAHAHHA")
         }
     }
     

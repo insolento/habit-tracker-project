@@ -143,7 +143,7 @@ public final class HabitsStore {
             userDefaults.setValue(data, forKey: "habits")
         }
         catch {
-            print("Ошибка кодирования привычек для сохранения", error)
+            print("File encripting error", error)
         }
     }
     
@@ -188,7 +188,7 @@ public final class HabitsStore {
             habits = try decoder.decode([Habit].self, from: data)
         }
         catch {
-            print("Ошибка декодирования сохранённых привычек", error)
+            print("File decoding error", error)
         }
     }
 }
