@@ -17,7 +17,7 @@ class TrackViewController: UIViewController {
         
         self.navigationController?.navigationBar.prefersLargeTitles = false
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
-            title: "Править",
+            title: "Change",
             style: .plain,
             target: self,
             action: #selector(rightBarButton)
@@ -78,7 +78,7 @@ extension TrackViewController: UITableViewDataSource {
 extension TrackViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        "АКТИВНОСТЬ"
+        "ACTIVITY"
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

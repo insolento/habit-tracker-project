@@ -36,7 +36,7 @@ class InfoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Информация"
+        self.navigationItem.title = "Information"
         addViews()
         scrollViewConstraints()
         stackViewConstraint()

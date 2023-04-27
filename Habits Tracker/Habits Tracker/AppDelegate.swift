@@ -19,14 +19,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let infoTBI = UITabBarItem()
         infoTBI.image = UIImage(systemName: "info.circle.fill")
         infoNC.tabBarItem = infoTBI
-        infoNC.title = "Информация"
+        infoNC.title = "Info"
 
         let habits = HabitsViewController()
         let habitsNC = UINavigationController(rootViewController: habits)
         let habitsTBI = UITabBarItem()
         habitsTBI.image = UIImage(named: "HabitsLogo")
         habitsNC.tabBarItem = habitsTBI
-        habitsNC.title = "Привычки"
+        habitsNC.title = "Habits"
 
         tabbar.viewControllers = [habitsNC, infoNC]
         window?.rootViewController = tabbar

@@ -1,6 +1,10 @@
 import UIKit
 
-class HabitsViewController: UIViewController {
+protocol CollectionViewCellDelegate: AnyObject {
+    func reloadCollectionView()
+}
+
+class HabitsViewController: UIViewController, CollectionViewCellDelegate {
     
     let myCollectionViewHabits: UICollectionView = {
         let viewLayout = UICollectionViewFlowLayout()
@@ -39,9 +43,16 @@ class HabitsViewController: UIViewController {
         myCollectionViewHabits.register(HabitsCollectionViewCell.self, forCellWithReuseIdentifier: HabitsCollectionViewCell.identifier)
     }
     
+    func reloadCollectionView() {
+        //Delegate function finishing
+        print("delegate working")
+        myCollectionViewHabits.reloadData()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigationBar()
+        myCollectionViewHabits.reloadData()
     }
     
     func addSubviews() {
@@ -56,7 +67,7 @@ class HabitsViewController: UIViewController {
             target: self,
             action: #selector(addHabit)
         )
-        navigationItem.title = "Сегодня"
+        navigationItem.title = "Today"
         navigationController?.navigationBar.backgroundColor = .systemBackground
         navigationController?.navigationBar.tintColor = UIColor(named: "PurpleColor")
         
@@ -120,6 +131,7 @@ extension HabitsViewController: UICollectionViewDataSource {
             if let currentCell = cell {
                 currentCell.setup(myHabits[indexPath.row])
                 currentCell.contentView.layer.cornerRadius = 10
+                currentCell.delegate = self
                 return currentCell
             } else { return clearCell }
             
